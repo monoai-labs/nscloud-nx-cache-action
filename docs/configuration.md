@@ -55,6 +55,7 @@ disables the Nx daemon and gives the child fresh workspace metadata and extracti
 directories. It removes these directories after the child and publication drain
 finish; archives in `NX_ARCHIVE_DIRECTORY` persist.
 
-Use one connector process per archive directory. Concurrent Nx tasks within that
-command share the listener. Access flags are client policy; they do not restrict
+Connector processes may share an archive directory; see [storage](operations.md#storage)
+for how they account for it. Concurrent Nx tasks within one command share its
+listener. Access flags are client policy; they do not restrict
 what the underlying Namespace identity or mounted filesystem can do.
